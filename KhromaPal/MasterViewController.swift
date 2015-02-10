@@ -22,7 +22,8 @@
 
 import UIKit
 
-class MasterViewController: UITableViewController {
+class MasterViewController: UITableViewController,
+                            PaletteSelectionContainer {
   
   var detailViewController: DetailViewController? = nil
   var paletteCollection: ColorPaletteCollection = ColorPaletterProvider().rootCollection!
@@ -40,6 +41,8 @@ class MasterViewController: UITableViewController {
       let controllers = split.viewControllers
       self.detailViewController = controllers.last?.topViewController as? DetailViewController
     }
+    
+    NSNotificationCenter.defaultCenter().addObserver(self, selector: "handleShowDetailVCTargetChanged:", name: UIViewControllerShowDetailTargetDidChangeNotification, object: nil)
   }
 
   
@@ -56,19 +59,21 @@ class MasterViewController: UITableViewController {
   override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
     let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as UITableViewCell
     let object = paletteCollection.children[indexPath.row]
-    cell.textLabel.text = object.name
+    cell.textLabel?.text = object.name
     return cell
   }
   
   override func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
     // Make sure that on iPad we see the disclosure indicators as expected
-    if(UIDevice.currentDevice().userInterfaceIdiom == .Pad) {
-      if rowHasChildrenAtIndex(indexPath) {
-        cell.accessoryType = .DisclosureIndicator
-      } else {
-        cell.accessoryType = .None
-      }
+    var segueWillPush = false
+    if rowHasChildrenAtIndex(indexPath) {
+        segueWillPush = rwt_showVCWillResultInPush(self)
+    } else {
+        segueWillPush = rwt_showDetailVCWillResultInPush(self)
     }
+    cell.accessoryType = segueWillPush ?
+    .DisclosureIndicator : .None
+
   }
   
   
@@ -78,7 +83,8 @@ class MasterViewController: UITableViewController {
       let newTable = storyboard?.instantiateViewControllerWithIdentifier("MasterVC") as MasterViewController
       newTable.paletteCollection = childCollection
       newTable.title = childCollection.name
-      navigationController?.pushViewController(newTable, animated: true)
+      //navigationController?.pushViewController(newTable, animated: true)
+      showViewController(newTable, sender: self)
     }
   }
   
@@ -111,5 +117,25 @@ class MasterViewController: UITableViewController {
     }
     return false
   }
-  
+ 
+    func rwt_currentlySelectedPalette() -> ColorPalette? {
+        let selectedIndex = tableView.indexPathForSelectedRow()
+        if let indexPath = selectedIndex {
+            if !rowHasChildrenAtIndex(indexPath) {
+                return paletteCollection.children[indexPath.row] as? ColorPalette
+            }
+        }
+        return nil
+    }
+    deinit {
+        NSNotificationCenter.defaultCenter().removeObserver(self, name: UIViewControllerShowDetailTargetDidChangeNotification, object: nil)
+    }
+    func handleShowDetailVCTargetChanged(Sender: AnyObject?) {
+        if let indexPaths = tableView.indexPathsForVisibleRows() {
+            for indexPath in indexPaths as [NSIndexPath] {
+                let cell = tableView.cellForRowAtIndexPath(indexPath)
+                tableView(tableView, willDisplayCell: cell!, forRowAtIndexPath: indexPath)
+            }
+        }
+    }
 }

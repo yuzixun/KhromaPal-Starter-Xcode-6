@@ -22,7 +22,8 @@
 
 import UIKit
 
-class DetailViewController: UIViewController, UISplitViewControllerDelegate {
+class DetailViewController: UIViewController,
+                            PaletteDisplayContainer {
 
   @IBOutlet weak var titleLabel: UILabel!
   @IBOutlet var colorLabels: [UILabel]!
@@ -63,6 +64,9 @@ class DetailViewController: UIViewController, UISplitViewControllerDelegate {
         titleLabel.textColor = middleColor.blackOrWhiteContrastingColor().colorWithAlphaComponent(0.6)
       }
     } else {
+        if let empty = storyboard?.instantiateViewControllerWithIdentifier("NoPaletteSelected") as? UIViewController{
+            showViewController(empty, sender: self)
+        }
       makeAllContentHidden(true)
     }
   }
@@ -73,18 +77,6 @@ class DetailViewController: UIViewController, UISplitViewControllerDelegate {
     self.configureView()
   }
   
-  // #pragma mark - Split view
-  func splitViewController(splitController: UISplitViewController, willHideViewController viewController: UIViewController, withBarButtonItem barButtonItem: UIBarButtonItem, forPopoverController popoverController: UIPopoverController) {
-    barButtonItem.title = "Palettes"
-    self.navigationItem.setLeftBarButtonItem(barButtonItem, animated: true)
-    self.masterPopoverController = popoverController
-  }
-  
-  func splitViewController(splitController: UISplitViewController, willShowViewController viewController: UIViewController, invalidatingBarButtonItem barButtonItem: UIBarButtonItem) {
-    // Called when the view is shown again in the split view, invalidating the button and popover controller.
-    self.navigationItem.setLeftBarButtonItem(nil, animated: true)
-    self.masterPopoverController = nil
-  }
   
   // Private methods
   private func makeAllContentHidden(hidden: Bool) {
@@ -95,5 +87,8 @@ class DetailViewController: UIViewController, UISplitViewControllerDelegate {
       title = ""
     }
   }
-
+  
+    func rwt_currentlyDisplayedPalette() -> ColorPalette? {
+        return colorPalette
+    }
 }

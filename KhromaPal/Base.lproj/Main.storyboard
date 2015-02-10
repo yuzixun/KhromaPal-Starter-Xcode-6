@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="14A388a" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="H1p-Uh-vWS">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="wbl-cR-R5i">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Navigation Controller-->
         <scene sceneID="pY4-Hu-kfo">
             <objects>
-                <navigationController id="RMx-3f-FxP" sceneMemberID="viewController">
+                <navigationController id="RMx-3f-FxP" customClass="NavigationController" customModule="KhromaPal" customModuleProvider="target" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="Pmd-2v-anx">
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -115,7 +116,7 @@
         <!--Split View Controller-->
         <scene sceneID="Nki-YV-4Qg">
             <objects>
-                <splitViewController id="H1p-Uh-vWS" sceneMemberID="viewController">
+                <splitViewController id="H1p-Uh-vWS" customClass="SplitViewController" customModule="KhromaPal" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     <connections>
@@ -126,6 +127,69 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cZU-Oi-B1e" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-591" y="-202"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="1qb-Cm-xH0">
+            <objects>
+                <viewController storyboardIdentifier="NoPaletteSelected" id="BWN-4P-aul" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="mNC-s6-GPt"/>
+                        <viewControllerLayoutGuide type="bottom" id="oKu-5H-HAO"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="VgV-2D-rpN">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No Palette Selected" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="8az-kh-Tbg">
+                                <rect key="frame" x="16" y="281" width="568" height="38"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="32"/>
+                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="8az-kh-Tbg" firstAttribute="leading" secondItem="VgV-2D-rpN" secondAttribute="leadingMargin" id="EIN-kR-ELb"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="8az-kh-Tbg" secondAttribute="trailing" id="ZSR-eX-bxQ"/>
+                            <constraint firstAttribute="centerY" secondItem="8az-kh-Tbg" secondAttribute="centerY" id="hi0-HW-cSK"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Zxy-au-MiO" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-534" y="514"/>
+        </scene>
+        <!--Trait Override VC-->
+        <scene sceneID="peq-UU-siN">
+            <objects>
+                <viewController title="Trait Override VC" id="wbl-cR-R5i" customClass="TraitOverrideViewController" customModule="KhromaPal" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="IbC-oS-jGQ"/>
+                        <viewControllerLayoutGuide type="bottom" id="xCB-uZ-cE5"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="dlU-mU-7vS">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="b8x-kZ-q0c">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <connections>
+                                    <segue destination="H1p-Uh-vWS" kind="embed" id="GqS-rW-Jog"/>
+                                </connections>
+                            </containerView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="b8x-kZ-q0c" firstAttribute="leading" secondItem="dlU-mU-7vS" secondAttribute="leading" id="2Hw-bE-wLz"/>
+                            <constraint firstAttribute="trailing" secondItem="b8x-kZ-q0c" secondAttribute="trailing" id="7ci-Ml-NBU"/>
+                            <constraint firstItem="b8x-kZ-q0c" firstAttribute="top" secondItem="dlU-mU-7vS" secondAttribute="top" id="TWl-fF-vlM"/>
+                            <constraint firstItem="xCB-uZ-cE5" firstAttribute="top" secondItem="b8x-kZ-q0c" secondAttribute="bottom" id="r3e-pj-SCU"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="YXD-WT-8tR" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1306" y="-202"/>
         </scene>
         <!--Master-->
         <scene sceneID="smW-Zh-WAh">
@@ -173,7 +237,7 @@
         <!--Navigation Controller-->
         <scene sceneID="r7l-gg-dq7">
             <objects>
-                <navigationController id="vC3-pB-5Vb" sceneMemberID="viewController">
+                <navigationController id="vC3-pB-5Vb" customClass="NavigationController" customModule="KhromaPal" customModuleProvider="target" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="DjV-YW-jjY">
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
