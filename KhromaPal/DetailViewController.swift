@@ -91,4 +91,14 @@ class DetailViewController: UIViewController,
     func rwt_currentlyDisplayedPalette() -> ColorPalette? {
         return colorPalette
     }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        if let svc = splitViewController {
+        if !svc.collapsed {
+            navigationItem.setLeftBarButtonItem(svc.displayModeButtonItem(), animated: true)
+            navigationItem.leftItemsSupplementBackButton = true
+            navigationItem.hidesBackButton = false
+        } }
+    }
 }

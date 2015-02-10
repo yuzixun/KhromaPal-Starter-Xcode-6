@@ -128,10 +128,10 @@
             </objects>
             <point key="canvasLocation" x="-591" y="-202"/>
         </scene>
-        <!--View Controller-->
+        <!--No Palette Selected-->
         <scene sceneID="1qb-Cm-xH0">
             <objects>
-                <viewController storyboardIdentifier="NoPaletteSelected" id="BWN-4P-aul" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="NoPaletteSelected" title="No Palette Selected" id="BWN-4P-aul" customClass="NoPaletteSelectedViewController" customModule="KhromaPal" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="mNC-s6-GPt"/>
                         <viewControllerLayoutGuide type="bottom" id="oKu-5H-HAO"/>

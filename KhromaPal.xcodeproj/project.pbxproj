@@ -32,6 +32,7 @@
 		E07C17881A84ED1F004AFB98 /* PaletteContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E07C17871A84ED1F004AFB98 /* PaletteContainer.swift */; };
 		E07C178A1A84EEBD004AFB98 /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E07C17891A84EEBD004AFB98 /* NavigationController.swift */; };
 		E07C178C1A850AAB004AFB98 /* UIViewControllerShow.swift in Sources */ = {isa = PBXBuildFile; fileRef = E07C178B1A850AAB004AFB98 /* UIViewControllerShow.swift */; };
+		E07D36BA1A8A55240042626F /* NoPaletteSelectedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E07D36B91A8A55240042626F /* NoPaletteSelectedViewController.swift */; };
 		E0E0E1A51A8A518E00D48C9E /* SplitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0E0E1A41A8A518E00D48C9E /* SplitViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -75,6 +76,7 @@
 		E07C17871A84ED1F004AFB98 /* PaletteContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaletteContainer.swift; sourceTree = "<group>"; };
 		E07C17891A84EEBD004AFB98 /* NavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NavigationController.swift; path = Protocols/NavigationController.swift; sourceTree = "<group>"; };
 		E07C178B1A850AAB004AFB98 /* UIViewControllerShow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewControllerShow.swift; sourceTree = "<group>"; };
+		E07D36B91A8A55240042626F /* NoPaletteSelectedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoPaletteSelectedViewController.swift; sourceTree = "<group>"; };
 		E0E0E1A41A8A518E00D48C9E /* SplitViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SplitViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -148,6 +150,7 @@
 				22BE2FF2196734C300772605 /* AppDelegate.swift */,
 				22BE2FF619673AFF00772605 /* MasterViewController.swift */,
 				22BE30251967468E00772605 /* DetailViewController.swift */,
+				E07D36B91A8A55240042626F /* NoPaletteSelectedViewController.swift */,
 				22D21E3619C896030090A99A /* LaunchScreen.xib */,
 			);
 			path = KhromaPal;
@@ -328,6 +331,7 @@
 				22BE2FF3196734C300772605 /* AppDelegate.swift in Sources */,
 				22BE303119674ECF00772605 /* ColorPaletteProvider.swift in Sources */,
 				22BE30351967521700772605 /* Colours.m in Sources */,
+				E07D36BA1A8A55240042626F /* NoPaletteSelectedViewController.swift in Sources */,
 				E07C17841A84E713004AFB98 /* TraitOverrideViewController.swift in Sources */,
 				22BE302D19674C8D00772605 /* PaletteTreeNode.swift in Sources */,
 				E07C17881A84ED1F004AFB98 /* PaletteContainer.swift in Sources */,

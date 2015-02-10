@@ -10,31 +10,31 @@
 	<string>KhromaPal</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
-		<key>1D7E7543ABA52EF67237E256C67D983760CA6559</key>
-		<string>ssh://bitbucket.org/sammyd/khromapal.git</string>
+		<key>EAF889C354C6806681B52262068EF9386794A99A</key>
+		<string>https://github.com/yuzixun/KhromaPal-Starter-Xcode-6.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>swift/KhromaPal/KhromaPal.xcodeproj/project.xcworkspace</string>
+	<string>KhromaPal.xcodeproj</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
-		<key>1D7E7543ABA52EF67237E256C67D983760CA6559</key>
-		<string>../../../..</string>
+		<key>EAF889C354C6806681B52262068EF9386794A99A</key>
+		<string>../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
-	<string>ssh://bitbucket.org/sammyd/khromapal.git</string>
+	<string>https://github.com/yuzixun/KhromaPal-Starter-Xcode-6.git</string>
 	<key>IDESourceControlProjectVersion</key>
 	<integer>111</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>1D7E7543ABA52EF67237E256C67D983760CA6559</string>
+	<string>EAF889C354C6806681B52262068EF9386794A99A</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>1D7E7543ABA52EF67237E256C67D983760CA6559</string>
+			<string>EAF889C354C6806681B52262068EF9386794A99A</string>
 			<key>IDESourceControlWCCName</key>
-			<string>KhromaPal</string>
+			<string>KhromaPal-Starter-Xcode-6</string>
 		</dict>
 	</array>
 </dict>
